@@ -3,28 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TankMovement : MonoBehaviour {
-	public float forwardMovement;
-	public float backwardMovement;
-	public float turnRate;
+	public float forwardSpeed = 5f;
+	public float backwardSpeed = 5f;
+	public float turnRate = 20f;
+
+	public Vector3 moveDirection = Vector3.zero;
 
 	void Update() {
+		// Move forward
 		if (Input.GetKey(KeyCode.W))
 		{
-			gameObject.transform.position += gameObject.transform.up * forwardMovement * Time.deltaTime;
-		}
-		if (Input.GetKey(KeyCode.S))
-		{
-			gameObject.transform.position -= gameObject.transform.up * backwardMovement * Time.deltaTime;
+			transform.Translate(0, 0, Time.deltaTime * forwardSpeed);
 		}
 
+		// Move backward
+		if (Input.GetKey(KeyCode.S))
+		{
+			transform.Translate(0, 0, -(Time.deltaTime * forwardSpeed));
+		}
+
+		// Turn left
 		if (Input.GetKey(KeyCode.A))
 		{
-			gameObject.transform.Rotate(0f, 0f, turnRate * Time.deltaTime);
+			transform.Rotate(0, -(Time.deltaTime * turnRate), 0);
 		}
+
+		// Turn right
 		if (Input.GetKey(KeyCode.D))
 		{
-			gameObject.transform.Rotate(0f, 0f, -turnRate * Time.deltaTime);
+			transform.Rotate(0, Time.deltaTime * turnRate, 0);
 		}
-		//and the same for A and D
 	}
 }

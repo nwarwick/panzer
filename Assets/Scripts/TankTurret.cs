@@ -5,33 +5,38 @@ using UnityEngine.UI;
 
 public class TankTurret : MonoBehaviour {
 
-	public float swizzleSpeed;
+	public GameObject turret;
+	public float swizzleSpeed = 5f;
 	public GameObject bullet;
 	public Transform bulletSpawn;
 	public Text bulletCountText;
-	private int bulletCount = 0;
+	//private int bulletCount = 0;
 
 
 	// Use this for initialization
 	void Start () {
-		
+		if(turret == null){
+			turret = GameObject.Find("TankTurret").gameObject;
+		}
+
+		if(bullet == null){
+			//turret = GameObject.Find("Bullet").gameObject;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.Q))
 		{
-			gameObject.transform.Rotate(0f, 0f, -swizzleSpeed * Time.deltaTime);
+			turret.transform.Rotate(0f, -swizzleSpeed * Time.deltaTime, 0f);
 		}
 		if (Input.GetKey(KeyCode.E))
 		{
-			gameObject.transform.Rotate (0f, 0f, swizzleSpeed * Time.deltaTime);
+			turret.transform.Rotate (0f, swizzleSpeed * Time.deltaTime, 0f);
 		}
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
-			bulletCount += 1;
-			bulletCountText.text = "Bullets: " + bulletCount;
 		}
 	}
 }
