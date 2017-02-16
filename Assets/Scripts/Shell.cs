@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class Shell : MonoBehaviour {
 
-	public float bulletSpeed = 60;
+	public float ShellSpeed = 60;
 	public float lifeSpan = 2;
 
 	void Start(){
@@ -13,6 +13,6 @@ public class Bullet : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.position += transform.up * bulletSpeed * Time.deltaTime;
+		transform.position += transform.forward * ShellSpeed * Time.deltaTime;
 	}
 }
