@@ -42,6 +42,8 @@ public class TankController : MonoBehaviour {
 			transform.Rotate(0, Time.deltaTime * turnRate, 0);
 		}
 
+		//dustEffectPrefab.SetActive(false);
+
 
 		Ray cameraRay;                // The ray that is cast from the camera to the mouse position
      	RaycastHit cameraRayHit;
