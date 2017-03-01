@@ -51,4 +51,9 @@ public class Cannon : MonoBehaviour
         effectInstance.GetComponent<ParticleSystem>().Play();
 		Destroy(effectInstance.gameObject, 1f); // Destroy after 0.5f time
     }
+
+    public float getHeight()
+    {
+        return transform.position.y;
+    }
 }
