@@ -51,18 +51,23 @@ public class Player : MonoBehaviour {
          if (Physics.Raycast(cameraRay, out cameraRayHit)) 
          {
              // ...and if that object is the ground...
-             if(cameraRayHit.transform.tag=="Ground")
-             {
-				 Debug.Log("Hit the ground");
+            
                  // ...make the cannon rotate (only on the Y axis) to face the ray hit's position 
                  Vector3 targetPosition = new Vector3(cameraRayHit.point.x, tank.cannon.getHeight(), cameraRayHit.point.z);
 				 tank.cannon.AimToward(targetPosition);
-             }
+             
          }
 
 		if (Input.GetMouseButtonDown (0)) {
 			tank.cannon.Fire ();
 		}
+	}
+
+	public void Kill()
+	{
+		Destroy(gameObject);
+		
+		// TODO: Play death effect/respawn stuff
 	}
 
 }
