@@ -139,9 +139,8 @@ public class Tank : MonoBehaviour
 
             }
             
+            Explode();
         }
-        Explode();
-
     }
 
     public void Explode()
