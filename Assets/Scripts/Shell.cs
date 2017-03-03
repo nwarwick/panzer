@@ -41,7 +41,7 @@ public class Shell : MonoBehaviour {
 	{
 		Debug.Log("Blowing up shell");
 		// Check if it hit a tank
-		Tank tank = other.GetComponent<Tank>();
+		Tank tank = other.gameObject.GetComponentInParent<Tank>(); // Have to grab script from parent since colliders are on child objects
 
 		if(tank != null)
 		{
