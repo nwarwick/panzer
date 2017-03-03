@@ -96,7 +96,7 @@ public class Tank : MonoBehaviour
     {
 
         health -= damage;
-
+        
         //healthBar.SetHealth (health);
 
         var ai = GetComponent<TankAI>();
@@ -121,11 +121,12 @@ public class Tank : MonoBehaviour
             {
 
                 Destroy(gameObject);
+                Explode();
 
             }
             else
             {
-
+                Explode();
                 health = 100;
                 //healthBar.SetHealth (100);
 
@@ -139,7 +140,7 @@ public class Tank : MonoBehaviour
 
             }
             
-            Explode();
+           
         }
     }
 
