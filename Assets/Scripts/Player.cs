@@ -62,12 +62,4 @@ public class Player : MonoBehaviour {
 			tank.cannon.Fire ();
 		}
 	}
-
-	public void Kill()
-	{
-		Destroy(gameObject);
-		
-		// TODO: Play death effect/respawn stuff
-	}
-
 }
