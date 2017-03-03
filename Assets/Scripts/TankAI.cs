@@ -9,7 +9,7 @@ public class TankAI : MonoBehaviour
     public const int Attacking = 1;
     public const int Fleeing = 2;
 
-    public float detectionDistance = 5;
+    public float detectionDistance = 10;
     public float fleeThreshold = 40;
     public float patrolPeriod = 1f;
     public float cannonReloadTime = 2;
@@ -117,15 +117,7 @@ public class TankAI : MonoBehaviour
                 // TODO: -------------------------
                 // Add attack behaviour
 
-				tank.cannon.AimToward(playerPosition); // UPDATE TO LEAD SHOT
-                if (cannonCooldown <= 0)
-                {
-                    cannonCooldown = cannonReloadTime;
-
-                    // Fire cannon at player
-                    tank.cannon.Fire();
-
-                }
+				
 
                 cannonCooldown -= Time.deltaTime;
 
@@ -136,6 +128,16 @@ public class TankAI : MonoBehaviour
                     
                     tank.TurnToward(playerPosition);
                     tank.MoveForward();
+                }
+
+                tank.cannon.AimToward(playerPosition); // UPDATE TO LEAD SHOT
+                if (cannonCooldown <= 0)
+                {
+                    cannonCooldown = cannonReloadTime;
+
+                    // Fire cannon at player
+                    tank.cannon.Fire();
+
                 }
 
                 // -------------------------------
