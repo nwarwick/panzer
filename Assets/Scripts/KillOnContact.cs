@@ -5,11 +5,6 @@ using UnityEngine;
 public class KillOnContact : MonoBehaviour {
     public GameObject deathEffect;
     
-	void Start()
-	{
-		
-	}
-
 	void OnCollisionEnter(Collision other)
     {
         Debug.Log("HIT SOMETHING");
