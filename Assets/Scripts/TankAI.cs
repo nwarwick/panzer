@@ -124,7 +124,7 @@ public class TankAI : MonoBehaviour
                 // Move tank
                 if (Vector3.Distance(transform.position, playerPosition) > followDistance)
                 {
-                    Debug.Log("Dist between = " + Vector3.Distance(transform.position, playerPosition) + "Follow dist = " + followDistance);
+                    //Debug.Log("Dist between = " + Vector3.Distance(transform.position, playerPosition) + "Follow dist = " + followDistance);
                     
                     tank.TurnToward(playerPosition);
                     tank.MoveForward();
